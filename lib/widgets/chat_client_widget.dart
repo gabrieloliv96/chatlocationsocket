@@ -22,6 +22,7 @@ class _ChatClientState extends State<ChatClient> {
   final FocusNode _messageFocusNode = FocusNode();
   List<Message> mensagens = [];
   bool named = false;
+  List<String> connetedClients = [];
 
   @override
   void initState() {
@@ -49,6 +50,7 @@ class _ChatClientState extends State<ChatClient> {
       (message) {
         setState(
           () {
+            connetedClients.add(message);
             mensagens.add(
               Message(
                 mensagem: message + " se conectou.",
